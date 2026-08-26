@@ -144,7 +144,10 @@
   .btn-ghost:hover{background:#fff;color:var(--green-deep)}
 
   @media(max-width:720px){
-    .diptych{flex-direction:column;width:92vw;max-width:520px}
+    /* phones: stack the two videos top-to-bottom, each spanning the full screen width */
+    .diptych{flex-direction:column;align-items:stretch;width:100vw;max-width:none;gap:18px}
+    .screen{flex:0 0 auto;width:100%}
+    .screen-media{border-radius:0;border-left:0;border-right:0}
   }
 
   /* ---------- SECTION SHELL ---------- */
@@ -194,14 +197,10 @@
   .btn-steel:hover{background:var(--steel-deep);transform:translateY(-2px)}
 
   /* ---------- FEATURE ROWS ---------- */
-  .feature{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+  .feature{display:block}
   .feature + .feature{margin-top:clamp(70px,10vh,120px)}
-  .feature.rev .f-text{order:2}
-  .feature .f-visual{position:relative;aspect-ratio:5/4;border-radius:20px;overflow:hidden;
-    border:1px solid var(--line);background:var(--panel);box-shadow:0 26px 60px rgba(34,48,38,.10)}
-  .feature .f-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-  .feature h3{font-size:clamp(26px,3.4vw,44px);font-weight:700;max-width:16ch}
-  .feature p{color:var(--muted);margin-top:20px;max-width:46ch}
+  .feature h3{font-size:clamp(26px,3.4vw,44px);font-weight:700}
+  .feature p{color:var(--muted);margin-top:20px}
   .mini-list{margin-top:28px;display:flex;flex-direction:column;gap:2px}
   .mini-list li{list-style:none;padding:16px 0;border-top:1px solid var(--line);display:flex;gap:16px;align-items:baseline;font-size:15.5px}
   .mini-list li:last-child{border-bottom:1px solid var(--line)}
@@ -458,12 +457,9 @@
           <li><span class="mn">D</span> Support collaborative, transparent decision-making</li>
         </ul>
       </div>
-      <div class="f-visual reveal d2">
-        <img class="f-img" src="assets/img/tool/map.svg" alt="re•flect scenario map screenshot" />
-      </div>
     </div>
 
-    <div class="feature rev">
+    <div class="feature">
       <div class="f-text">
         <div class="reveal"><div class="kicker"><span class="num">03</span> Strategic shading</div></div>
         <h3 class="reveal d1">Every tree counts. See exactly where each one cools the water.</h3>
@@ -474,24 +470,10 @@
           <li><span class="mn">03</span> Tools for visual, participatory scenario building</li>
         </ul>
       </div>
-      <div class="f-visual reveal d2">
-        <img class="f-img" src="assets/img/tool/shading.svg" alt="re•flect 3D strategic shading screenshot" />
-      </div>
     </div>
   </div>
 </section>
 
-<!-- STATS BAND -->
-<section class="band section-pad">
-  <div class="wrap">
-    <div class="stats">
-      <div class="stat-item reveal"><div class="big">2°C</div><div class="lbl">cooler peak temperatures within a 25 m riparian buffer</div></div>
-      <div class="stat-item reveal d1"><div class="big">33%</div><div class="lbl">of Zurich's waterways remain culverted underground</div></div>
-      <div class="stat-item reveal d2"><div class="big">2</div><div class="lbl">living case studies — rural Scotland &amp; urban Zurich</div></div>
-      <div class="stat-item reveal d3"><div class="big">'24—'27</div><div class="lbl">funded by VELUX STIFTUNG across four institutes</div></div>
-    </div>
-  </div>
-</section>
 
 <!-- TEAM -->
 <section class="section-pad tint-sage" id="team">
