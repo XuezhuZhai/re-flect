@@ -1,0 +1,15 @@
+# Large source video masters — commit only the web-optimized .mp4s in assets/video/
+*.mov
+*.MOV
+
+# Clean, un-watermarked source masters (input to tools/watermark.ps1). Kept local only;
+# the watermarked, web-sized outputs under assets/img and assets/video ARE committed.
+assets/_src/
+
+# watermark helper temp files (auto-created/removed by the script)
+/wmfont.ttf
+/wm.txt
+
+# OS / editor cruft
+Thumbs.db
+.DS_Store

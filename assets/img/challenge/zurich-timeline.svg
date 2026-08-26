@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 660" preserveAspectRatio="xMidYMid slice" font-family="Segoe UI,Inter,sans-serif">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef3ea"/><stop offset="1" stop-color="#d3e0e6"/></linearGradient></defs>
+  <rect width="1600" height="660" fill="url(#g)"/>
+  <rect x="14" y="14" width="1572" height="632" fill="none" stroke="#3f5d3a" stroke-opacity=".35" stroke-width="2" stroke-dasharray="11 9" rx="14"/>
+  <g fill="#3f5d3a" text-anchor="middle">
+    <text x="800" y="324" font-size="20" letter-spacing="3" opacity=".85">ZURICH WATERWAYS · 1850 / 1980 / 2022</text>
+    <text x="800" y="356" font-size="14" opacity=".62">replace with → assets/img/challenge/zurich-timeline.png</text>
+  </g>
+</svg>

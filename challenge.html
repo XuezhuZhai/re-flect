@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Challenge — re•flect</title>
+<meta name="description" content="Two rivers, two challenges: overheated rural rivers in Scotland and buried urban streams in Zurich — and the challenge of coordinating restoration across many stakeholders." />
+<link rel="icon" type="image/svg+xml" href="assets/img/brand/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#eef3ea;--bg-2:#e4ede0;--panel:#ffffff;--ink:#223026;--muted:#54655a;--muted-2:#7d8c80;
+    --line:rgba(34,48,38,.14);--sky:#8fbcd9;--sky-deep:#5f93bd;--green:#6f9e50;--green-deep:#3f5d3a;
+    --sage:#aec89a;--steel:#5f7d8c;--forest:#1e2c1d;--glass:rgba(238,244,234,.82);--maxw:1120px;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.68;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3{font-family:'Sora',sans-serif;letter-spacing:-.02em;line-height:1.12}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--green);color:#fff}
+  img,video{-webkit-user-drag:none;-khtml-user-drag:none;user-select:none;-webkit-touch-callout:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+    padding:14px clamp(20px,5vw,56px);background:var(--glass);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+  .brand .logo{height:34px;width:auto;display:block}
+  .back{font-size:14px;font-weight:600;color:var(--green-deep);display:inline-flex;align-items:center;gap:8px;
+    border:1.5px solid var(--line);border-radius:100px;padding:8px 18px;transition:all .3s var(--ease)}
+  .back:hover{border-color:var(--green);background:rgba(111,158,80,.10)}
+
+  /* header */
+  .doc-head{padding:clamp(48px,8vh,96px) 0 clamp(24px,4vh,44px);background:linear-gradient(180deg,var(--bg-2),var(--bg))}
+  .kicker{display:inline-flex;align-items:center;gap:12px;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--green-deep);font-weight:700;margin-bottom:18px}
+  .kicker::before{content:"";width:28px;height:1px;background:var(--green)}
+  .doc-head h1{font-size:clamp(30px,5vw,58px);font-weight:800;max-width:20ch}
+  .doc-head p{margin-top:20px;max-width:62ch;color:var(--muted);font-size:clamp(16px,1.5vw,19px)}
+
+  /* article */
+  article{padding:clamp(30px,5vh,56px) 0 clamp(60px,9vh,110px)}
+  .chapter{padding:clamp(34px,5vh,60px) 0;border-top:1px solid var(--line)}
+  .chapter:first-child{border-top:none}
+  .chapter h2{font-size:clamp(24px,3.2vw,38px);font-weight:800;max-width:22ch}
+  .chapter .tagline{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+    margin-bottom:14px;padding:5px 12px;border-radius:100px}
+  .tag-rural{color:var(--green-deep);background:rgba(111,158,80,.14)}
+  .tag-urban{color:var(--steel);background:rgba(95,125,140,.16)}
+  .tag-coord{color:#8a6d2f;background:rgba(200,160,80,.16)}
+  .chapter p{margin-top:18px;max-width:68ch;color:#37453b;font-size:clamp(15.5px,1.4vw,18px)}
+  .chapter p .em{font-weight:700;color:var(--ink)}
+  .chapter i{font-style:italic}
+
+  figure{margin:clamp(26px,4vh,44px) 0 0}
+  figure img{width:100%;height:auto;display:block;border-radius:16px;border:1px solid var(--line);background:var(--panel);
+    box-shadow:0 20px 46px rgba(34,48,38,.08)}
+  figure figcaption{margin-top:12px;font-size:13.5px;color:var(--muted-2)}
+  .fig-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,26px);margin-top:clamp(26px,4vh,44px)}
+  .fig-row figure{margin:0}
+  @media(max-width:760px){.fig-row{grid-template-columns:1fr}}
+
+  /* research card */
+  .research{margin-top:clamp(40px,6vh,72px);border:1px solid var(--line);border-radius:22px;overflow:hidden;
+    background:linear-gradient(150deg,#dbe8d3,#cfe1e8)}
+  .research .inner{padding:clamp(28px,4vw,48px);display:flex;flex-wrap:wrap;align-items:center;gap:24px;justify-content:space-between}
+  .research .rk{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--green-deep);font-weight:700}
+  .research h3{font-size:clamp(20px,2.4vw,28px);font-weight:700;margin:10px 0 6px;max-width:24ch}
+  .research p{color:var(--muted);font-size:15px;max-width:52ch}
+  .btn{display:inline-flex;align-items:center;gap:10px;border-radius:100px;font-weight:600;font-size:15px;
+    padding:15px 26px;transition:all .3s var(--ease);cursor:pointer;border:1.5px solid transparent;white-space:nowrap}
+  .btn-primary{background:var(--green-deep);color:#fff;box-shadow:0 12px 30px rgba(31,44,29,.28)}
+  .btn-primary:hover{background:var(--green);transform:translateY(-2px)}
+
+  .more-cta{margin-top:clamp(40px,6vh,72px);display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn-outline{border-color:var(--line);color:var(--green-deep)}
+  .btn-outline:hover{border-color:var(--green);background:rgba(111,158,80,.10)}
+
+  /* footer */
+  footer{background:var(--forest);color:#a9bca4;padding:48px 0;font-size:14px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+  footer a:hover{color:#bfe6a8}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html" class="brand" aria-label="re•flect — home">
+    <img class="logo" src="assets/img/brand/re-flect%20logo%20with%20color.png" alt="re•flect" />
+  </a>
+  <a href="index.html" class="back">← Back to home</a>
+</header>
+
+<section class="doc-head">
+  <div class="wrap">
+    <div class="kicker">01 · The challenge</div>
+    <h1>Two rivers, two extremes of light — and the same loss of life.</h1>
+    <p>River restoration is a shared goal across very different landscapes. Here is the fuller picture behind re•flect: why Scotland's rural rivers overheat, why Zurich's urban streams stay buried, and why coordinating a fix is so hard.</p>
+  </div>
+</section>
+
+<article>
+  <div class="wrap">
+
+    <!-- SCOTLAND -->
+    <section class="chapter" id="scotland">
+      <span class="tagline tag-rural">Rural · Scotland</span>
+      <h2>Scotland's Rural Rivers: Overexposed and Overheated</h2>
+      <p>In the Scottish countryside, many rivers lack riparian forests, leaving them overexposed to sunlight, especially in summer. This raises water temperatures, threatening cold-water species like Atlantic salmon (<i>Salmo salar</i>).</p>
+      <p>Research shows that riparian woodland cover within a <span class="em">25 m buffer can reduce peak river temperatures by approximately 2 °C</span>, with the most vulnerable rivers in northern Scotland, the northwest, and the Cairngorm Mountains — areas with minimal tree cover.</p>
+      <p>Restoring riparian woodlands could not only cool these waters but also stabilise riverbanks and enhance ecosystem services.</p>
+
+      <figure>
+        <img src="assets/img/challenge/scotland-cooling.svg" alt="Maps of Scotland showing unplanted riparian areas and the proportion of unplanted area suitable for forestry" />
+        <figcaption>Left: unplanted 20 m riparian areas. Right: proportion of unplanted riparian area suitable for forestry (LCF 1–4).</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/challenge/scotland-shading.svg" alt="Cross-section diagram comparing dense, loose and sparse riparian woodland and the shading each provides" />
+        <figcaption>How dense, loose and sparse riparian woodland shade the water differently.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ZURICH -->
+    <section class="chapter" id="zurich">
+      <span class="tagline tag-urban">Urban · Zurich</span>
+      <h2>Zurich's Urban Rivers: Buried Streams and Fragmented Ecosystems</h2>
+      <p>In contrast, Zurich's urban rivers face a different set of challenges. Despite being a pioneer in river daylighting — restoring culverted rivers to open channels — <span class="em">one third of Zurich's waterways remain underground</span>. These culverts disrupt natural hydrological and ecological processes, fragment habitats, and limit biodiversity. While past efforts have successfully revived some urban streams, the remaining buried sections continue to hinder riverine connectivity and ecosystem function.</p>
+
+      <figure>
+        <img src="assets/img/challenge/zurich-daylighting.svg" alt="Diagram of an urban street being daylighted and then shaded with a street tree" />
+        <figcaption>From culvert to open channel to shaded stream: daylighting and then shading an urban waterway.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/challenge/zurich-timeline.svg" alt="Three maps of Zurich's open water bodies in 1850, 1980 and 2022, showing culverted rivers" />
+        <figcaption>Open water bodies in 1850, 1980 and 2022 — the red lines mark rivers now culverted underground.</figcaption>
+      </figure>
+    </section>
+
+    <!-- COORDINATION -->
+    <section class="chapter" id="coordination">
+      <span class="tagline tag-coord">Shared · Both sites</span>
+      <h2>The Challenge of Multi-Stakeholder Coordination</h2>
+      <p>In both cases, river restoration is a shared goal, but implementation is complex due to the diverse landscapes these rivers traverse. Whether in rural Scotland or urban Zurich, rivers flow through land owned or managed by multiple stakeholders — including farmers, local communities, conservation groups, and governmental agencies. Each of these groups has distinct interests, ranging from agricultural productivity to urban infrastructure, recreational use, and ecological conservation.</p>
+      <p>Balancing these competing demands requires an inclusive, participatory approach to river restoration. Yet stakeholders often struggle to make meaningful contributions due to limited ecological knowledge and planning experience, making it challenging to evaluate alternatives and anticipate outcomes. <span class="em">This is exactly the gap re•flect is built to close.</span></p>
+    </section>
+
+    <!-- RESEARCH LINK -->
+    <div class="research">
+      <div class="inner">
+        <div>
+          <div class="rk">Go deeper · Research</div>
+          <h3>Mapping the cooling potential: riparian woodland in Scotland</h3>
+          <p>An interactive research write-up on where woodland shading can cool Scotland's rivers the most.</p>
+        </div>
+        <a class="btn btn-primary" href="cooling-potential-scotland.html">Open the research page →</a>
+      </div>
+    </div>
+
+    <div class="more-cta">
+      <a href="index.html#tool" class="btn btn-primary" style="background:var(--green)">See how the tool helps →</a>
+      <a href="index.html#involve" class="btn btn-outline">Get involved</a>
+    </div>
+
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <span>© 2024–2027 re•flect · Funded by VELUX STIFTUNG</span>
+    <span><a href="index.html">← Back to home</a></span>
+  </div>
+</footer>
+
+<script>
+  // deterrent only: block right-click & drag on media (does not prevent DevTools/network capture)
+  addEventListener('contextmenu',e=>{if(e.target.closest('img,video'))e.preventDefault();});
+  document.querySelectorAll('img,video').forEach(m=>m.addEventListener('dragstart',e=>e.preventDefault()));
+</script>
+</body>
+</html>

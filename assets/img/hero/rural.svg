@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" font-family="Segoe UI,Inter,sans-serif">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a9d0e6"/><stop offset="1" stop-color="#7ea05f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#g)"/>
+  <rect x="14" y="14" width="1572" height="972" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="2" stroke-dasharray="10 9" rx="14"/>
+  <g fill="#ffffff" text-anchor="middle">
+    <circle cx="800" cy="462" r="26" fill="none" stroke="#ffffff" stroke-opacity=".85" stroke-width="3"/>
+    <circle cx="809" cy="453" r="4"/>
+    <path d="M784 474 l14 -16 l10 10 l10 -12 l14 18 z" fill-opacity=".9"/>
+    <text x="800" y="518" font-size="15" letter-spacing="3" opacity=".85">RURAL · GLENSHEE, SCOTLAND</text>
+    <text x="800" y="546" font-size="26" font-weight="700">Left hero</text>
+    <text x="800" y="572" font-size="14" opacity=".8">replace with → assets/video/rural.mp4  (or rural.jpg)</text>
+  </g>
+</svg>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Daylighting potential in Zurich — re•flect</title>
+<meta name="description" content="Zurich's urban rivers: buried streams and fragmented ecosystems — the opportunities and limits for stream daylighting in a dense urban context." />
+<link rel="icon" type="image/svg+xml" href="assets/img/brand/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#eef3ea;--bg-2:#e4ede0;--panel:#ffffff;--ink:#223026;--muted:#54655a;--muted-2:#7d8c80;
+    --line:rgba(34,48,38,.14);--sky:#8fbcd9;--sky-deep:#5f93bd;--green:#6f9e50;--green-deep:#3f5d3a;
+    --sage:#aec89a;--steel:#5f7d8c;--steel-deep:#4a6675;--forest:#1e2c1d;--glass:rgba(238,244,234,.82);
+    --maxw:900px;--ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.68;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3{font-family:'Sora',sans-serif;letter-spacing:-.02em;line-height:1.12}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--steel);color:#fff}
+  img,video{-webkit-user-drag:none;-khtml-user-drag:none;user-select:none;-webkit-touch-callout:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+
+  header.nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+    padding:14px clamp(20px,5vw,56px);background:var(--glass);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+  .brand .logo{height:34px;width:auto;display:block}
+  .back{font-size:14px;font-weight:600;color:var(--steel-deep);display:inline-flex;align-items:center;gap:8px;
+    border:1.5px solid var(--line);border-radius:100px;padding:8px 18px;transition:all .3s var(--ease)}
+  .back:hover{border-color:var(--steel);background:rgba(95,125,140,.10)}
+
+  .doc-head{padding:clamp(48px,8vh,96px) 0 clamp(10px,1.6vh,16px);background:linear-gradient(180deg,#dfe8ec,var(--bg))}
+  .kicker{display:inline-flex;align-items:center;gap:12px;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--steel-deep);font-weight:700;margin-bottom:18px}
+  .kicker::before{content:"";width:28px;height:1px;background:var(--steel)}
+  .doc-head h1{font-size:clamp(28px,4.6vw,54px);font-weight:800}
+  .doc-head p{margin-top:20px;color:var(--muted);font-size:clamp(16px,1.5vw,19px)}
+
+  article{padding:0 0 clamp(60px,9vh,110px)}
+  .chapter{padding:clamp(34px,5vh,60px) 0;border-top:1px solid var(--line)}
+  .chapter:first-child{border-top:none;padding-top:clamp(8px,1.5vh,16px)}
+  .chapter h2{font-size:clamp(23px,3vw,36px);font-weight:800}
+  .chapter p{margin-top:18px;color:#37453b;font-size:clamp(15.5px,1.4vw,18px)}
+  .chapter p .em{font-weight:700;color:var(--ink)}
+
+  figure{margin:clamp(26px,4vh,44px) 0 0}
+  figure img{width:100%;height:auto;display:block;border-radius:16px;border:1px solid var(--line);background:var(--panel);box-shadow:0 20px 46px rgba(34,48,38,.08)}
+  figure figcaption{margin-top:12px;font-size:13.5px;color:var(--muted-2)}
+
+  .more-cta{margin-top:clamp(40px,6vh,72px);display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:10px;border-radius:100px;font-weight:600;font-size:15px;
+    padding:15px 26px;transition:all .3s var(--ease);cursor:pointer;border:1.5px solid transparent;white-space:nowrap}
+  .btn-primary{background:var(--steel);color:#fff;box-shadow:0 12px 30px rgba(74,102,117,.28)}
+  .btn-primary:hover{background:var(--steel-deep);transform:translateY(-2px)}
+  .btn-outline{border-color:var(--line);color:var(--steel-deep)}
+  .btn-outline:hover{border-color:var(--steel);background:rgba(95,125,140,.10)}
+
+  footer{background:var(--forest);color:#a9bca4;padding:48px 0;font-size:14px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+  footer a:hover{color:#bfe6a8}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html" class="brand" aria-label="re•flect — home">
+    <img class="logo" src="assets/img/brand/re-flect%20logo%20with%20color.png" alt="re•flect" />
+  </a>
+  <a href="index.html" class="back">← Back to home</a>
+</header>
+
+<section class="doc-head">
+  <div class="wrap">
+    <div class="kicker">Research · WP1 · Urban Zurich</div>
+    <h1>Zurich's urban rivers: buried streams and fragmented ecosystems</h1>
+    <p>The opposite of Scotland's overexposed rural rivers — here the challenge is water hidden underground, and the opportunities and limits of bringing it back to daylight in a dense city.</p>
+  </div>
+</section>
+
+<article>
+  <div class="wrap">
+    <section class="chapter">
+      <p>In contrast, Zurich's urban rivers face a different set of challenges. Despite being a pioneer in river daylighting — restoring culverted rivers to open channels — <span class="em">one third of Zurich's waterways remain underground</span>. These culverts disrupt natural hydrological and ecological processes, fragment habitats, and limit biodiversity. While past efforts have successfully revived some urban streams, the remaining buried sections continue to hinder riverine connectivity and ecosystem function.</p>
+
+      <figure>
+        <img src="assets/img/research/zurich-rivers.jpg" alt="Three maps of Zurich's open water bodies in 1850, 1980 and 2022, with rivers now culverted marked in red" />
+        <figcaption>Open bodies of water in Zurich — 1850, 1980 and 2022. Grey marks developed areas; in 2022, red lines mark rivers now culverted underground.</figcaption>
+      </figure>
+    </section>
+
+    <div class="more-cta">
+      <a href="challenge.html" class="btn btn-primary">Back to the challenge →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <span>© 2024–2027 re•flect · Funded by VELUX STIFTUNG</span>
+    <span><a href="index.html">← Back to home</a></span>
+  </div>
+</footer>
+
+<script>
+  // deterrent only: block right-click & drag on media (does not prevent DevTools/network capture)
+  addEventListener('contextmenu',e=>{if(e.target.closest('img,video'))e.preventDefault();});
+  document.querySelectorAll('img,video').forEach(m=>m.addEventListener('dragstart',e=>e.preventDefault()));
+</script>
+</body>
+</html>

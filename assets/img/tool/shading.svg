@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" preserveAspectRatio="xMidYMid slice" font-family="Segoe UI,Inter,sans-serif">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cfe0e7"/><stop offset="1" stop-color="#9fb187"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="720" fill="url(#g)"/>
+  <rect x="14" y="14" width="872" height="692" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="2" stroke-dasharray="10 9" rx="14"/>
+  <g fill="#ffffff" text-anchor="middle">
+    <circle cx="450" cy="322" r="26" fill="none" stroke="#ffffff" stroke-opacity=".85" stroke-width="3"/>
+    <circle cx="459" cy="313" r="4"/>
+    <path d="M434 334 l14 -16 l10 10 l10 -12 l14 18 z" fill-opacity=".9"/>
+    <text x="450" y="378" font-size="15" letter-spacing="3" opacity=".85">3D STRATEGIC SHADING</text>
+    <text x="450" y="406" font-size="26" font-weight="700">Tool screenshot 2</text>
+    <text x="450" y="432" font-size="14" opacity=".8">replace with → assets/img/tool/shading.jpg</text>
+  </g>
+</svg>
