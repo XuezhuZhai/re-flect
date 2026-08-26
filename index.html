@@ -354,6 +354,37 @@
   @media(max-width:760px){.foot-top{grid-template-columns:1fr}}
 
   .progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--green),var(--sky-deep));z-index:200;width:0}
+
+  /* ---------- LIVE DEMO: CTA + invite-code gate + fullscreen player ---------- */
+  .demo-cta{margin-top:clamp(26px,4vh,40px);display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+  .demo-cta .hint{font-size:13.5px;color:var(--muted);letter-spacing:.01em}
+  .demo-cta .hint b{color:var(--green-deep);font-weight:700}
+  /* modal + player share one dim backdrop */
+  .demo-modal,.demo-player{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;
+    background:rgba(9,16,10,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+  .demo-modal.open,.demo-player.open{display:flex}
+  .demo-card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:clamp(28px,4vw,40px);
+    width:min(92vw,420px);box-shadow:0 40px 90px rgba(0,0,0,.4);text-align:left}
+  .demo-card h4{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:8px}
+  .demo-card p{font-size:14.5px;color:var(--muted);margin-bottom:20px;line-height:1.5}
+  .demo-card label{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--green-deep);margin-bottom:8px}
+  .demo-card input{width:100%;padding:14px 16px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);
+    font-size:16px;color:var(--ink);font-family:inherit;letter-spacing:.06em}
+  .demo-card input:focus{outline:none;border-color:var(--green)}
+  .demo-card .err{display:none;color:#c0392b;font-size:13.5px;margin-top:10px;font-weight:600}
+  .demo-card .err.show{display:block}
+  .demo-card .row{display:flex;gap:12px;margin-top:22px}
+  .demo-card .row .btn{flex:1;justify-content:center;padding:13px 20px}
+  .btn-mini{background:transparent;border-color:var(--line);color:var(--muted)}
+  .btn-mini:hover{background:var(--bg-2);color:var(--ink)}
+  /* fullscreen player */
+  .demo-player{background:#05080699;padding:0}
+  .demo-frame-wrap{position:relative;width:100vw;height:100vh}
+  .demo-frame-wrap iframe{width:100%;height:100%;border:0;display:block;background:#0b130e}
+  .demo-close{position:absolute;top:16px;right:16px;z-index:2;width:44px;height:44px;border-radius:50%;
+    background:rgba(0,0,0,.55);color:#fff;border:1px solid rgba(255,255,255,.3);font-size:22px;line-height:1;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+  .demo-close:hover{background:rgba(0,0,0,.8)}
 </style>
 </head>
 <body>
@@ -456,6 +487,10 @@
           <li><span class="mn">C</span> Assess the costs and benefits of each option</li>
           <li><span class="mn">D</span> Support collaborative, transparent decision-making</li>
         </ul>
+        <div class="demo-cta reveal d3">
+          <button type="button" class="btn btn-primary" id="demoLaunch">Launch the live demo →</button>
+          <span class="hint">Runs in your browser · <b>invite code required</b></span>
+        </div>
       </div>
     </div>
 
@@ -643,6 +678,72 @@
     </div>
   </div>
 </footer>
+
+<!-- LIVE DEMO: invite-code gate -->
+<div class="demo-modal" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoTitle">
+  <div class="demo-card">
+    <h4 id="demoTitle">Enter your invite code</h4>
+    <p>The live demo is limited to invited participants. Enter the code you received to launch it.</p>
+    <label for="demoCode">Invite code</label>
+    <input id="demoCode" type="text" autocomplete="off" spellcheck="false" placeholder="e.g. REFLECT-XXXX" />
+    <div class="err" id="demoErr">That code isn’t valid. Please check and try again.</div>
+    <div class="row">
+      <button type="button" class="btn btn-mini" id="demoCancel">Cancel</button>
+      <button type="button" class="btn btn-primary" id="demoEnter">Launch →</button>
+    </div>
+  </div>
+</div>
+
+<!-- LIVE DEMO: fullscreen player -->
+<div class="demo-player" id="demoPlayer">
+  <div class="demo-frame-wrap">
+    <button type="button" class="demo-close" id="demoClose" aria-label="Close demo">×</button>
+    <iframe id="demoFrame" title="re•flect live demo" allow="autoplay; fullscreen; gamepad; microphone; clipboard-write" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+  /* ===================================================================
+     LIVE DEMO CONFIG  —  edit these two lines after Vagon is set up.
+     1) VAGON_EMBED_URL : the embed/share URL Vagon gives you.
+     2) INVITE_CODES    : the codes you hand out (case-insensitive).
+     NOTE: this gate is a convenience filter only. The REAL access lock
+     must be the password/access control set on the Vagon stream itself,
+     because anyone can read these values in the page source.
+     =================================================================== */
+  const VAGON_EMBED_URL = "";  // <-- paste your Vagon embed URL here
+  const INVITE_CODES = ["REFLECT-2026"];  // <-- your invite code(s)
+
+  (function(){
+    const norm = s => (s||"").trim().toUpperCase();
+    const codes = INVITE_CODES.map(norm);
+    const modal=document.getElementById('demoModal'),
+          player=document.getElementById('demoPlayer'),
+          frame=document.getElementById('demoFrame'),
+          input=document.getElementById('demoCode'),
+          err=document.getElementById('demoErr');
+    const openModal=()=>{err.classList.remove('show');input.value='';modal.classList.add('open');setTimeout(()=>input.focus(),50);};
+    const closeModal=()=>modal.classList.remove('open');
+    const launch=()=>{
+      if(!codes.includes(norm(input.value))){
+        err.classList.add('show');input.focus();input.select();return;
+      }
+      if(!VAGON_EMBED_URL){alert('The live demo isn’t connected yet. (VAGON_EMBED_URL is empty.)');return;}
+      closeModal();
+      frame.src=VAGON_EMBED_URL;
+      player.classList.add('open');
+      document.body.style.overflow='hidden';
+    };
+    const closePlayer=()=>{player.classList.remove('open');frame.src='';document.body.style.overflow='';};
+    document.getElementById('demoLaunch').addEventListener('click',openModal);
+    document.getElementById('demoCancel').addEventListener('click',closeModal);
+    document.getElementById('demoEnter').addEventListener('click',launch);
+    document.getElementById('demoClose').addEventListener('click',closePlayer);
+    input.addEventListener('keydown',e=>{if(e.key==='Enter')launch();});
+    modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+    addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();if(player.classList.contains('open'))closePlayer();}});
+  })();
+</script>
 
 <script>
   const nav=document.getElementById('nav'), progress=document.getElementById('progress');
