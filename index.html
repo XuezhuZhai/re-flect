@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>re•flect — Daylight for river restoration</title>
 <meta name="description" content="re•flect visualising daylight management in river restoration" />
-<link rel="icon" type="image/svg+xml" href="assets/img/brand/favicon.svg" />
+<link rel="icon" type="image/png" href="assets/img/brand/favicon.png?v=3" />
 <meta property="og:title" content="re•flect — Daylight for river restoration" />
 <meta property="og:description" content="Visualising the strategic use of daylight in river restoration." />
 <meta property="og:image" content="assets/img/brand/og-image.svg" />
@@ -489,7 +489,7 @@
         </ul>
         <div class="demo-cta reveal d3">
           <button type="button" class="btn btn-primary" id="demoLaunch">Launch the live demo →</button>
-          <span class="hint">Runs in your browser · <b>invite code required</b></span>
+          <span class="hint">Runs in your browser · <b>opens in a new tab</b></span>
         </div>
       </div>
     </div>
@@ -679,70 +679,12 @@
   </div>
 </footer>
 
-<!-- LIVE DEMO: invite-code gate -->
-<div class="demo-modal" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoTitle">
-  <div class="demo-card">
-    <h4 id="demoTitle">Enter your invite code</h4>
-    <p>The live demo is limited to invited participants. Enter the code you received to launch it.</p>
-    <label for="demoCode">Invite code</label>
-    <input id="demoCode" type="text" autocomplete="off" spellcheck="false" placeholder="e.g. REFLECT-XXXX" />
-    <div class="err" id="demoErr">That code isn’t valid. Please check and try again.</div>
-    <div class="row">
-      <button type="button" class="btn btn-mini" id="demoCancel">Cancel</button>
-      <button type="button" class="btn btn-primary" id="demoEnter">Launch →</button>
-    </div>
-  </div>
-</div>
-
-<!-- LIVE DEMO: fullscreen player -->
-<div class="demo-player" id="demoPlayer">
-  <div class="demo-frame-wrap">
-    <button type="button" class="demo-close" id="demoClose" aria-label="Close demo">×</button>
-    <iframe id="demoFrame" title="re•flect live demo" allow="autoplay; fullscreen; gamepad; microphone; clipboard-write" allowfullscreen></iframe>
-  </div>
-</div>
-
 <script>
-  /* ===================================================================
-     LIVE DEMO CONFIG  —  edit these two lines after Vagon is set up.
-     1) VAGON_EMBED_URL : the embed/share URL Vagon gives you.
-     2) INVITE_CODES    : the codes you hand out (case-insensitive).
-     NOTE: this gate is a convenience filter only. The REAL access lock
-     must be the password/access control set on the Vagon stream itself,
-     because anyone can read these values in the page source.
-     =================================================================== */
-  const VAGON_EMBED_URL = "";  // <-- paste your Vagon embed URL here
-  const INVITE_CODES = ["REFLECT-2026"];  // <-- your invite code(s)
-
-  (function(){
-    const norm = s => (s||"").trim().toUpperCase();
-    const codes = INVITE_CODES.map(norm);
-    const modal=document.getElementById('demoModal'),
-          player=document.getElementById('demoPlayer'),
-          frame=document.getElementById('demoFrame'),
-          input=document.getElementById('demoCode'),
-          err=document.getElementById('demoErr');
-    const openModal=()=>{err.classList.remove('show');input.value='';modal.classList.add('open');setTimeout(()=>input.focus(),50);};
-    const closeModal=()=>modal.classList.remove('open');
-    const launch=()=>{
-      if(!codes.includes(norm(input.value))){
-        err.classList.add('show');input.focus();input.select();return;
-      }
-      if(!VAGON_EMBED_URL){alert('The live demo isn’t connected yet. (VAGON_EMBED_URL is empty.)');return;}
-      closeModal();
-      frame.src=VAGON_EMBED_URL;
-      player.classList.add('open');
-      document.body.style.overflow='hidden';
-    };
-    const closePlayer=()=>{player.classList.remove('open');frame.src='';document.body.style.overflow='';};
-    document.getElementById('demoLaunch').addEventListener('click',openModal);
-    document.getElementById('demoCancel').addEventListener('click',closeModal);
-    document.getElementById('demoEnter').addEventListener('click',launch);
-    document.getElementById('demoClose').addEventListener('click',closePlayer);
-    input.addEventListener('keydown',e=>{if(e.key==='Enter')launch();});
-    modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
-    addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();if(player.classList.contains('open'))closePlayer();}});
-  })();
+  // Live demo — clicking the button opens this preset link directly in a new tab.
+  const DEMO_URL = "https://streams.vagon.io/streams/dfd8793c-6db6-4fac-b5c7-29a6a73026eb";
+  document.getElementById('demoLaunch').addEventListener('click',()=>{
+    if(DEMO_URL) window.open(DEMO_URL,'_blank','noopener');
+  });
 </script>
 
 <script>
