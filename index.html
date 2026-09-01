@@ -347,16 +347,16 @@
   footer a:hover{color:#bfe6a8}
   .foot-col h5{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:18px}
   .foot-col a{display:block;margin-bottom:12px}
-  /* partner / funder logo band */
-  .partner-band{display:flex;flex-wrap:wrap;gap:32px 56px;align-items:flex-start;
-    padding-bottom:40px;margin-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12)}
-  .pgroup h6{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8ba087;font-weight:700;margin-bottom:16px}
-  .plogos{display:flex;flex-wrap:wrap;align-items:center;gap:26px 34px}
-  .plogos img{height:clamp(26px,3vw,34px);width:auto;max-width:160px;object-fit:contain;
-    filter:brightness(0) invert(1);opacity:.82;transition:opacity .25s}
+  /* partner / funder logo band — Lead institutes on row 1, Funded by + Partners on row 2 */
+  .partner-band{display:flex;flex-direction:column;align-items:center;gap:36px;text-align:center;
+    padding-bottom:44px;margin-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .prow2{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:36px 80px;width:100%}
+  .pgroup h6{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8ba087;font-weight:700;margin-bottom:18px}
+  .plogos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:30px 46px;min-height:60px}
+  .plogos img{height:clamp(46px,5.4vw,62px);width:auto;max-width:250px;object-fit:contain;
+    filter:brightness(0) invert(1);opacity:.85;transition:opacity .25s}
   .plogos img:hover{opacity:1}
-  .plogos img[alt="VELUX STIFTUNG"]{height:clamp(66px,7.8vw,92px);max-width:380px}
-  @media(max-width:760px){.partner-band{gap:26px 32px}}
+  @media(max-width:760px){.plogos{gap:24px 32px}.prow2{gap:30px 44px}}
   .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:56px;
     padding-top:24px;border-top:1px solid rgba(255,255,255,.12);color:#7d9179;font-size:13px}
   @media(max-width:760px){.foot-top{grid-template-columns:1fr}}
@@ -654,10 +654,6 @@
   <div class="wrap">
     <div class="partner-band">
       <div class="pgroup">
-        <h6>Funded by</h6>
-        <div class="plogos"><img src="assets/img/brand/Velux-768x432.png" alt="VELUX STIFTUNG" /></div>
-      </div>
-      <div class="pgroup">
         <h6>Lead research institutes</h6>
         <div class="plogos">
           <img src="assets/img/brand/eth-zurich1144.png" alt="ETH Zürich" />
@@ -666,11 +662,17 @@
           <img src="assets/img/brand/EdenCT_monowhite_tp.png" alt="EdenCT" />
         </div>
       </div>
-      <div class="pgroup">
-        <h6>Partners</h6>
-        <div class="plogos">
-          <img src="assets/img/brand/SWT-Logo-small.png" alt="Scottish Wildlife Trust" />
-          <img src="assets/img/brand/ERZ.png" alt="Stadt Zürich · Entsorgung + Recycling" />
+      <div class="prow2">
+        <div class="pgroup">
+          <h6>Funded by</h6>
+          <div class="plogos"><img src="assets/img/brand/Velux-768x432.png" alt="VELUX STIFTUNG" /></div>
+        </div>
+        <div class="pgroup">
+          <h6>Partners</h6>
+          <div class="plogos">
+            <img src="assets/img/brand/SWT-Logo-small.png" alt="Scottish Wildlife Trust" />
+            <img src="assets/img/brand/ERZ.png" alt="Stadt Zürich · Entsorgung + Recycling" />
+          </div>
         </div>
       </div>
     </div>
