@@ -347,8 +347,15 @@
   footer a:hover{color:#bfe6a8}
   .foot-col h5{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:18px}
   .foot-col a{display:block;margin-bottom:12px}
-  .partners{display:flex;flex-wrap:wrap;gap:14px 24px;margin-top:24px}
-  .partners span{font-size:12.5px;color:#8ba087;letter-spacing:.03em}
+  /* partner / funder logo band */
+  .partner-band{display:flex;flex-wrap:wrap;gap:32px 56px;align-items:flex-start;
+    padding-bottom:40px;margin-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .pgroup h6{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8ba087;font-weight:700;margin-bottom:16px}
+  .plogos{display:flex;flex-wrap:wrap;align-items:center;gap:26px 34px}
+  .plogos img{height:clamp(26px,3vw,34px);width:auto;max-width:160px;object-fit:contain;
+    filter:brightness(0) invert(1);opacity:.82;transition:opacity .25s}
+  .plogos img:hover{opacity:1}
+  @media(max-width:760px){.partner-band{gap:26px 32px}}
   .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:56px;
     padding-top:24px;border-top:1px solid rgba(255,255,255,.12);color:#7d9179;font-size:13px}
   @media(max-width:760px){.foot-top{grid-template-columns:1fr}}
@@ -623,34 +630,15 @@
       <div class="reveal d1">
         <div class="talk"><div class="tbody"><span class="tt">Interactive Visualisation Tools for Participatory River Restoration</span><span class="tmeta">Sustainability Science Summit · DKN German Committee Future Earth, Berlin · Feb 21, 2025 · 30 participants</span></div><span class="tpres"><strong>XZ</strong> · <strong>FK</strong> · PB · JG · MB · AD</span></div>
         <div class="talk"><div class="tbody"><span class="tt">Potential of Using Generative Artificial Intelligence for Participatory River Restoration</span><span class="tmeta">Seminar · Institute of Environmental Planning, Leibniz Universität Hannover · Feb 18, 2025 · 20 participants</span></div><span class="tpres"><strong>XZ</strong> · FK · PB · JG · MB · AD</span></div>
-        <div class="talk"><div class="tbody"><span class="tt">From the Perception of Restored Wetlands to the Visualisation and Co-design of River Restoration</span><span class="tmeta">Seminar · Chair of Planning of Landscape and Urban Systems, ETH Zurich · Oct 31, 2025 · 20 participants</span></div><span class="tpres"><strong>XZ</strong> · FK · PB · JG · MB · AD</span></div>
+        <div class="talk"><div class="tbody"><span class="tt">From the Perception of Restored Wetlands to the Visualisation and Co-design of River Restoration</span><span class="tmeta">Seminar · Chair of Planning of Landscape and Urban Systems, ETH Zurich · Oct 31, 2025 · 20 participants</span></div><span class="tpres"><strong>XZ</strong></span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- GET INVOLVED -->
-<section class="section-pad plain" id="involve">
-  <div class="wrap">
-    <div class="reveal"><div class="kicker"><span class="num">06</span> Get involved</div></div>
-    <h2 class="h-lg reveal d1">The tool is better with your knowledge in it.</h2>
-    <div class="involve-grid">
-      <div class="invite reveal d1">
-        <h3>Share your restoration experience</h3>
-        <p>If you've faced challenges in past river restoration projects, we'd love to hear about them in a 1–1.5 hour interview that shapes how the tool works.</p>
-        <a href="mailto:xuezhu.zhai@usys.ethz.ch?subject=re•flect%20interview" class="btn btn-primary">Join an interview →</a>
-      </div>
-      <div class="invite reveal d2">
-        <h3>Join the advisory board</h3>
-        <p>Strategic advisors engage with us regularly, gain early access to the visualisation tool, and are recognised in our publications.</p>
-        <a href="mailto:xuezhu.zhai@usys.ethz.ch?subject=re•flect%20advisory%20board" class="btn btn-primary" style="background:var(--steel);box-shadow:0 10px 30px rgba(74,102,117,.3)">Become an advisor →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FINAL CTA -->
-<section class="cta plain">
+<section class="cta plain" id="involve">
   <div class="wrap">
     <h2 class="reveal">Help us <span class="glow">reflect</span> a better river.</h2>
     <p class="reveal d1">Empowering stakeholders to participate meaningfully in ecosystem restoration — one daylit stream at a time.</p>
@@ -663,13 +651,32 @@
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
+    <div class="partner-band">
+      <div class="pgroup">
+        <h6>Funded by</h6>
+        <div class="plogos"><img src="assets/img/brand/Velux-768x432.png" alt="VELUX STIFTUNG" /></div>
+      </div>
+      <div class="pgroup">
+        <h6>Lead research institutes</h6>
+        <div class="plogos">
+          <img src="assets/img/brand/eth-zurich1144.png" alt="ETH Zürich" />
+          <img src="assets/img/brand/luh_logo.png" alt="Leibniz Universität Hannover" />
+          <img src="assets/img/brand/WSL-Logo.png" alt="WSL" />
+          <img src="assets/img/brand/EdenCT_monowhite_tp.png" alt="EdenCT" />
+        </div>
+      </div>
+      <div class="pgroup">
+        <h6>Partners</h6>
+        <div class="plogos">
+          <img src="assets/img/brand/SWT-Logo-small.png" alt="Scottish Wildlife Trust" />
+          <img src="assets/img/brand/ERZ.png" alt="Stadt Zürich · Entsorgung + Recycling" />
+        </div>
+      </div>
+    </div>
     <div class="foot-top">
       <div>
         <div class="brand">re<span class="dot">•</span>flect</div>
         <p style="max-width:38ch">ETH Zürich, Ecosystem Management (D-USYS), Universitätstrasse 16, CHN G 75.1, 8092 Zürich, Switzerland</p>
-        <div class="partners">
-          <span>ETH Zurich</span><span>Leibniz Universität Hannover</span><span>WSL</span><span>EdenCT</span><span>Scottish Wildlife Trust</span><span>Eawag ERZ</span><span>VELUX STIFTUNG</span>
-        </div>
       </div>
       <div class="foot-col">
         <h5>Explore</h5>
@@ -677,7 +684,7 @@
       </div>
       <div class="foot-col">
         <h5>Connect</h5>
-        <a href="mailto:xuezhu.zhai@usys.ethz.ch">xuezhu.zhai@usys.ethz.ch</a><a href="#involve">Join an interview</a><a href="#involve">Advisory board</a>
+        <a href="mailto:xuezhu.zhai@usys.ethz.ch">xuezhu.zhai@usys.ethz.ch</a><a href="#involve">Contact the team</a>
       </div>
     </div>
     <div class="foot-bottom">
