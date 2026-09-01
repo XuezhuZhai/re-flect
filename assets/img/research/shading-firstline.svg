@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" font-family="Segoe UI,Inter,sans-serif">
-  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dbe7f2"/><stop offset="1" stop-color="#cfd9e6"/></linearGradient></defs>
-  <rect width="1400" height="800" fill="url(#g)"/>
-  <rect x="14" y="14" width="1372" height="772" fill="none" stroke="#3f5d3a" stroke-opacity=".35" stroke-width="2" stroke-dasharray="11 9" rx="14"/>
-  <g fill="#3f5d3a" text-anchor="middle">
-    <text x="700" y="394" font-size="19" letter-spacing="2" opacity=".85">COOLING vs. ROWS · LINE 1 (blue) / LINE 2 (orange)</text>
-    <text x="700" y="424" font-size="14" opacity=".62">replace with → assets/img/research/shading-firstline.png</text>
-  </g>
-</svg>
