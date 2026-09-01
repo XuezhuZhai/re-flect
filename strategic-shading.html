@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Strategic shading for river cooling — re•flect</title>
+<meta name="description" content="Making every tree count: where to plant riparian trees for maximum river cooling with the smallest land footprint." />
+<link rel="icon" type="image/png" href="assets/img/brand/favicon.png?v=3" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#eef3ea;--bg-2:#e4ede0;--panel:#ffffff;--ink:#223026;--muted:#54655a;--muted-2:#7d8c80;
+    --line:rgba(34,48,38,.14);--sky:#8fbcd9;--sky-deep:#5f93bd;--green:#6f9e50;--green-deep:#3f5d3a;
+    --sage:#aec89a;--steel:#5f7d8c;--steel-deep:#4a6675;--forest:#1e2c1d;--glass:rgba(238,244,234,.82);
+    --maxw:900px;--ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.68;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3{font-family:'Sora',sans-serif;letter-spacing:-.02em;line-height:1.12}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--green);color:#fff}
+  img,video{-webkit-user-drag:none;-khtml-user-drag:none;user-select:none;-webkit-touch-callout:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+
+  header.nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+    padding:14px clamp(20px,5vw,56px);background:var(--glass);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+  .brand .logo{height:34px;width:auto;display:block}
+  .back{font-size:14px;font-weight:600;color:var(--green-deep);display:inline-flex;align-items:center;gap:8px;
+    border:1.5px solid var(--line);border-radius:100px;padding:8px 18px;transition:all .3s var(--ease)}
+  .back:hover{border-color:var(--green);background:rgba(111,158,80,.10)}
+
+  .doc-head{padding:clamp(48px,8vh,96px) 0 clamp(10px,1.6vh,16px);background:linear-gradient(180deg,var(--bg-2),var(--bg))}
+  .kicker{display:inline-flex;align-items:center;gap:12px;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--green-deep);font-weight:700;margin-bottom:18px}
+  .kicker::before{content:"";width:28px;height:1px;background:var(--green)}
+  .doc-head h1{font-size:clamp(28px,4.6vw,52px);font-weight:800}
+  .doc-head p{margin-top:20px;color:var(--muted);font-size:clamp(16px,1.5vw,19px)}
+
+  article{padding:0 0 clamp(60px,9vh,110px)}
+  .chapter{padding:clamp(30px,4.5vh,52px) 0;border-top:1px solid var(--line)}
+  .chapter:first-child{border-top:none;padding-top:clamp(8px,1.5vh,16px)}
+  .chapter .rn{font-family:'Sora';font-weight:800;font-size:13px;letter-spacing:.06em;color:var(--green);text-transform:uppercase}
+  .chapter h2{font-size:clamp(22px,2.9vw,34px);font-weight:800;margin-top:6px}
+  .chapter p{margin-top:16px;color:#37453b;font-size:clamp(15.5px,1.4vw,18px)}
+  .chapter p .em{font-weight:700;color:var(--ink)}
+  .strategy{margin-top:18px;padding:16px 20px;border-left:3px solid var(--green);background:rgba(111,158,80,.08);border-radius:0 12px 12px 0;font-size:clamp(15px,1.35vw,17px)}
+  .strategy b{color:var(--green-deep)}
+
+  .findings{list-style:none;margin:clamp(18px,3vh,28px) 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
+  .findings li{position:relative;padding-left:24px;color:#37453b;font-size:clamp(15px,1.35vw,17px);line-height:1.6}
+  .findings li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:var(--green)}
+  .findings strong{color:var(--ink)}
+
+  figure{margin:clamp(22px,3.5vh,36px) 0 0}
+  figure img{width:100%;height:auto;display:block;border-radius:16px;border:1px solid var(--line);background:var(--panel);box-shadow:0 20px 46px rgba(34,48,38,.08)}
+  figure figcaption{margin-top:12px;font-size:13.5px;color:var(--muted-2)}
+
+  .more-cta{margin-top:clamp(40px,6vh,72px);display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:10px;border-radius:100px;font-weight:600;font-size:15px;
+    padding:15px 26px;transition:all .3s var(--ease);cursor:pointer;border:1.5px solid transparent;white-space:nowrap}
+  .btn-primary{background:var(--green);color:#fff;box-shadow:0 12px 30px rgba(63,93,58,.28)}
+  .btn-primary:hover{background:#7fb35e;transform:translateY(-2px)}
+  .btn-outline{border-color:var(--line);color:var(--green-deep)}
+  .btn-outline:hover{border-color:var(--green);background:rgba(111,158,80,.10)}
+
+  footer{background:var(--forest);color:#a9bca4;padding:48px 0;font-size:14px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+  footer a:hover{color:#bfe6a8}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html" class="brand" aria-label="re•flect — home">
+    <img class="logo" src="assets/img/brand/re-flect%20logo%20with%20color.png" alt="re•flect" />
+  </a>
+  <a href="index.html" class="back">← Back to home</a>
+</header>
+
+<section class="doc-head">
+  <div class="wrap">
+    <div class="kicker">Research · WP2 · Strategic shading</div>
+    <h1>Making every tree count: strategic shading for river cooling</h1>
+    <p>In a landscape where land is precious, river restoration isn't just about planting more trees — it's about planting them where they matter most.</p>
+  </div>
+</section>
+
+<article>
+  <div class="wrap">
+
+    <section class="chapter">
+      <h2>The challenge: land vs. water</h2>
+      <p>Riparian woodland is a critical tool for cooling warming rivers — but we cannot simply reforest entire catchments. Land is a finite resource, often competed for by agriculture, housing and infrastructure.</p>
+      <p>By simulating thousands of solar interactions with detailed ray-tracing models, we analysed how trees cast shade on water. The data reveals that a <span class="em">strategic</span> approach can achieve maximum cooling with a minimal land footprint. Here are three rules for making every tree count.</p>
+    </section>
+
+    <section class="chapter">
+      <div class="rn">Rule 1</div>
+      <h2>Prioritise the “first line”</h2>
+      <p>One of the most persistent myths in restoration is that you need a deep, dense forest buffer to cool a river. Our simulation data suggests otherwise. We modelled the cooling efficiency of a single row of trees versus adding a second row behind it — and found a clear saturation point.</p>
+      <ul class="findings">
+        <li><strong>The power of the edge.</strong> Filling the immediate riverbank (“Line 1”, the blue series) yields a steady, linear increase in cooling — rising from ~6% to over 12%. Every gap filled along the water's edge translates directly into reduced solar radiation.</li>
+        <li><strong>The law of diminishing returns.</strong> Once the first line is established, adding a second row behind it (the orange series) offers negligible additional shading of the water surface.</li>
+      </ul>
+      <figure>
+        <img src="assets/img/research/shading-firstline.svg" alt="Chart: river cooling versus number of tree rows — Line 1 (blue) rises steadily while Line 2 (orange) plateaus" />
+        <figcaption>Cooling as riverbank rows are filled: Line 1 (blue) rises steadily; a second row (orange) adds little.</figcaption>
+      </figure>
+      <div class="strategy"><b>Strategy:</b> fill the water's edge first. A complete first line beats a patchy double buffer.</div>
+    </section>
+
+    <section class="chapter">
+      <div class="rn">Rule 2</div>
+      <h2>Crown shape matters</h2>
+      <p>When selecting species for restoration we often look at growth rate or biodiversity value. But for temperature management, the physical shape of the tree is decisive. We analysed four distinct crown shapes to determine their shading efficiency.</p>
+      <ul class="findings">
+        <li><strong>Broad is better.</strong> Trees with wide, spreading crowns (Shape A — typical of broadleaves like oak or beech) outperformed narrow, conical forms (Shape D — typical of some conifers) by a significant margin.</li>
+        <li><strong>The efficiency gap.</strong> The difference in shading performance between the best and worst shapes is nearly 20%.</li>
+      </ul>
+      <figure>
+        <img src="assets/img/research/shading-crown.svg" alt="Comparison of shading efficiency across four crown shapes A to D" />
+        <figcaption>Shading efficiency by crown shape (A–D): broad, spreading canopies (A) far outperform narrow, conical ones (D).</figcaption>
+      </figure>
+      <div class="strategy"><b>Strategy:</b> on a per-tree basis, prioritise species with wide lateral spread. A broad canopy does the work of two narrow ones.</div>
+    </section>
+
+    <section class="chapter">
+      <div class="rn">Rule 3</div>
+      <h2>Know the limits of river width</h2>
+      <p>The river itself is the biggest variable. Our model demonstrates that shading potential decays exponentially as the channel widens.</p>
+      <ul class="findings">
+        <li><strong>Small streams (&lt;5 m).</strong> Shading is highly effective — even moderate vegetation can block over 80% of solar radiation.</li>
+        <li><strong>The 30 m threshold.</strong> On wide rivers (30 m+), even a mature canopy struggles to reduce radiation by more than 20%.</li>
+      </ul>
+      <figure>
+        <img src="assets/img/research/shading-width.svg" alt="Chart: shading potential decays exponentially as river width increases" />
+        <figcaption>Shading potential versus river width — highly effective on small streams, marginal on wide channels.</figcaption>
+      </figure>
+      <div class="strategy"><b>Strategy:</b> on wide rivers, “scattergun” planting is ineffective — use <b>targeted orientation</b>. For wide channels flowing east–west (the most vulnerable to heating), concentrate planting strictly on the <b>southern bank</b>. Planting the northern bank provides habitat, but its contribution to cooling is mathematically negligible.</div>
+    </section>
+
+    <div class="more-cta">
+      <a href="cooling-potential-scotland.html" class="btn btn-primary">Where to plant: cooling potential in Scotland →</a>
+      <a href="index.html" class="btn btn-outline">Back to home</a>
+    </div>
+
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <span>© 2024–2027 re•flect · Funded by VELUX STIFTUNG</span>
+    <span><a href="index.html">← Back to home</a></span>
+  </div>
+</footer>
+
+<script>
+  // deterrent only: block right-click & drag on media (does not prevent DevTools/network capture)
+  addEventListener('contextmenu',e=>{if(e.target.closest('img,video'))e.preventDefault();});
+  document.querySelectorAll('img,video').forEach(m=>m.addEventListener('dragstart',e=>e.preventDefault()));
+</script>
+</body>
+</html>
